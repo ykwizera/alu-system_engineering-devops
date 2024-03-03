@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
-#generates a new ssh rsa pair
-ssh-keygen -f school -b 4096 -N betty
+
+# Create RSA key pair with specified parameters
+ssh-keygen -t rsa -b 4096 -N "betty" -C "school" -f "school"
+
+# Rename the private key file to have the correct extension
+mv school school.pem
+
+echo "RSA key pair created successfully."
+
