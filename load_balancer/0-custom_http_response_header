@@ -5,6 +5,25 @@
 # uncomment to see the script run in action
 #set -x
 
+server_config="
+defaults
+  mode http
+  timeout client 15s
+  timeout connect 10s
+  timeout server 15s
+  timeout http-request 10s
+
+frontend clickviral-tech-frontend
+    bind *:80
+    default_backend clickviral-tech-backend
+
+backend clickviral-tech-backend
+    balance roundrobin
+    server 5996-web-01 54.89.203.17 check
+    server 5996-web-02 54.91.49.80 check
+    http-request set-header X-Served-By clickviral-tech-01
+"
+
 echo -e "Updating and doing some minor checks...\n"
 
 function install() {
