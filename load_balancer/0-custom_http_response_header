@@ -21,7 +21,7 @@ backend clickviral-tech-backend
     balance roundrobin
     server 5996-web-01 54.89.203.17 check
     server 5996-web-02 54.91.49.80 check
-    http-request set-header X-Served-By clickviral-tech-01
+    http-request set-header X-Served-By %[srv_name]
 "
 
 echo -e "Updating and doing some minor checks...\n"
