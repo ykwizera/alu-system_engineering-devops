@@ -3,6 +3,5 @@
 sudo apt update 
 sudo apt install nginx -y
 sudo touch /var/www/html/index.html
-# Adding the message
 echo "Holberton School" | sudo tee /var/www/html/index.html 
 sudo service nginx restart
